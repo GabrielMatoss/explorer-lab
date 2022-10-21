@@ -75,7 +75,6 @@ const cardNumberMasked = IMask(cardNumber, cardNumberPatter);
 const addButton = document.querySelector("#add-card");
 addButton.addEventListener("click", () => {
         alert("Cartão adicionado!");
-        resetInputsAndCard();
 })
 
 document.querySelector("form").addEventListener("submit", (event) => {
@@ -120,24 +119,3 @@ function updateExpirationDate(date) {
     ccExpiration.innerText = date.length === 0 ? "02/32" : date;
 }
 
-
-function resetInputsAndCard() {
-    cardNumber.value = "";
-    securityCode.value = "";
-    expirationDate.value = "";
-    cardHolder.value = "";
-
-    const ccExpiration = document.querySelector(".cc-extra .value");
-    ccExpiration.innerText= "02/32";
-
-    const ccNumber = document.querySelector(".cc-number");
-    ccNumber.innerText =  "1234 5678 9012 3456";
-
-    const ccSecurity = document.querySelector(".cc-security .value");
-    ccSecurity.innerText ="123";
-
-    const ccHolder = document.querySelector(".cc-holder .value");
-    ccHolder.innerText = "Fulano da Silva";
-
-    setCardType("default");
-}
